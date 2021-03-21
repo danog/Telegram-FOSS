@@ -219,9 +219,9 @@ public class ApplicationLoader extends Application {
         SharedPreferences preferences = MessagesController.getGlobalNotificationsSettings();
         boolean enabled;
         if (preferences.contains("pushService")) {
-            enabled = preferences.getBoolean("pushService", true);
+            enabled = false; //preferences.getBoolean("pushService", true);
         } else {
-            enabled = MessagesController.getMainSettings(UserConfig.selectedAccount).getBoolean("keepAliveService", true);
+            enabled = false; // MessagesController.getMainSettings(UserConfig.selectedAccount).getBoolean("keepAliveService", true);
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean("pushService", enabled);
             editor.putBoolean("pushConnection", enabled);
